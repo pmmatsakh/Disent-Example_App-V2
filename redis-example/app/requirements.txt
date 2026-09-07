@@ -1,0 +1,4 @@
+# redis example. On the container: uv pip install -r requirements.txt
+fastapi>=0.110
+uvicorn[standard]>=0.29
+redis>=5.0

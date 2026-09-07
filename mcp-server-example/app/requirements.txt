@@ -1,0 +1,6 @@
+# mcp_server example. On the container: uv pip install -r requirements.txt
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.0
+# This example uses the MCPServer API introduced by mcp 2.x.
+mcp>=2.0,<3

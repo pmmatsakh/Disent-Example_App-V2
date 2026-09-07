@@ -1,0 +1,5 @@
+# Runtime dependencies for the fastapi example.
+# On the container these install with `uv pip install -r requirements.txt`
+# (uv is preinstalled — see CLAUDE.md §3). Locally, pip works the same.
+fastapi>=0.110
+uvicorn[standard]>=0.29

@@ -1,0 +1,3 @@
+# Runtime dependencies for the flask example.
+# On the container: `uv pip install -r requirements.txt` (uv preinstalled, §3).
+flask>=3.0

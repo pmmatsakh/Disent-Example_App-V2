@@ -1,0 +1,36 @@
+# --- Secrets: never commit. .env.example files ARE committed (placeholders only).
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- Dependencies (regenerable: npm install / uv sync)
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pnpm-store/
+
+# --- Build output & caches
+dist/
+build/
+.next/
+.turbo/
+.clang-cache/
+*.o
+*.so
+*.dylib
+
+# --- Local databases
+*.sqlite
+*.sqlite3
+*.db
+
+# --- macOS
+.DS_Store
+
+# --- Logs
+*.log
+npm-debug.log*

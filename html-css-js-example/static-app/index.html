@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>html_css_js — hello world</title>
+
+    <!-- CSS is a separate file, linked here. No build step: the browser
+         requests styles.css directly. -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- HTML = STRUCTURE. This file describes *what* is on the page.
+         It says nothing about how it looks (that's styles.css) or what
+         it does (that's app.js). -->
+    <main class="card">
+      <h1>👋 hello from <code>html_css_js</code></h1>
+      <div>plain HTML, CSS, and JavaScript · no framework, no build step</div>
+
+      <p class="meta">
+        Three files, three jobs:
+        <strong>index.html</strong> is the structure,
+        <strong>styles.css</strong> is the appearance, and
+        <strong>app.js</strong> is the behaviour.
+        Nothing is compiled — the browser loads these files exactly as written.
+      </p>
+
+      <!-- JS finds these by their id and wires them up. -->
+      <button id="count-btn" type="button">clicked 0 times</button>
+
+      <p class="meta small">
+        <button id="theme-btn" type="button" class="link">switch accent colour</button>
+        — this toggles a CSS class from JavaScript.
+      </p>
+
+      <p class="meta small" id="loaded-at"></p>
+    </main>
+
+    <!-- JavaScript is a separate file too. `defer` tells the browser to run it
+         after the HTML above has been parsed, so the elements exist by the
+         time the script looks for them. -->
+    <script src="app.js" defer></script>
+  </body>
+</html>

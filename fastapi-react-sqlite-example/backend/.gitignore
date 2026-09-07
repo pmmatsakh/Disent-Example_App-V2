@@ -1,0 +1,3 @@
+# The SQLite database is created at runtime — don't commit it.
+data.db
+.venv/

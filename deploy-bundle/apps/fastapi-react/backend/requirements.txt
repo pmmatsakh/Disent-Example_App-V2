@@ -1,0 +1,4 @@
+# Backend dependencies for the fastapi_react fullstack example.
+# On the container: `uv pip install -r requirements.txt` (uv preinstalled, §3).
+fastapi>=0.110
+uvicorn[standard]>=0.29

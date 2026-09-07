@@ -1,0 +1,6 @@
+# claude_code wrapper. On the container: `uv pip install -r requirements.txt`.
+# The claude CLI itself: `npm install -g @anthropic-ai/claude-code` (approved
+# by Anthony). Auth via `claude login` or ANTHROPIC_API_KEY in .env.
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.0

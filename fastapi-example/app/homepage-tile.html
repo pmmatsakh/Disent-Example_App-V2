@@ -1,0 +1,27 @@
+<!-- Homepage entry for the example-app browser.
+     The landing page iframes each sub-app on its port-routed subdomain.
+     URL convention per CLAUDE.md §2:  my-container-{port}.example.com
+     (NOT the retired *.fastcontainers.net scheme — that is a bug, §4). -->
+
+<article class="app-tile" data-category="backend" data-lang="python">
+  <header>
+    <h3>fastapi</h3>
+    <span class="badge">backend · python · :8000</span>
+  </header>
+
+  <!-- live preview of the running app -->
+  <iframe
+    src="https://my-container-8000.example.com"
+    title="fastapi hello world"
+    loading="lazy"
+    style="width:100%; height:220px; border:0; border-radius:8px;"></iframe>
+
+  <footer>
+    <a href="https://my-container-8000.example.com" target="_blank" rel="noopener">
+      open example ↗
+    </a>
+    <a href="https://git.example.com/philip/fastapi" target="_blank" rel="noopener">
+      source
+    </a>
+  </footer>
+</article>

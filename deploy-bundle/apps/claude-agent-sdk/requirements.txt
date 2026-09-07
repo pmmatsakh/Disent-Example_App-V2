@@ -1,0 +1,5 @@
+# claude_agent_sdk example. On the container: uv pip install -r requirements.txt
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.0
+claude-agent-sdk>=0.1

@@ -1,0 +1,6 @@
+# Backend dependencies for the fastapi_react_sqlite fullstack example.
+# (sqlite3 is in the Python stdlib — nothing to install for the database.)
+# On the container: `uv pip install -r requirements.txt` (uv preinstalled, §3).
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.0

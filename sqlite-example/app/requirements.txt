@@ -1,0 +1,4 @@
+# sqlite example. sqlite3 itself is Python stdlib — nothing to install for the
+# database. These are only for the web wrapper that displays the CRUD cycle.
+fastapi>=0.110
+uvicorn[standard]>=0.29

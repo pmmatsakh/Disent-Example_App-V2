@@ -1,0 +1,13 @@
+{
+  "name": "n8n-example",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.16.0",
+  "description": "n8n workflow automation (AI category) — native server on :5678",
+  "scripts": {
+    "start": "./start.sh"
+  },
+  "dependencies": {
+    "n8n": "^1.0.0"
+  }
+}

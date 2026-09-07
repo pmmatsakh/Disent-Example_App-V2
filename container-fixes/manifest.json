@@ -1,0 +1,308 @@
+{
+  "project": "my-container",
+  "domain": "example.com",
+  "scheme": "https",
+  "note": "Edit this file to add or update apps. index.html renders whatever is here — no code changes needed. Only live apps are listed; descoped/blocked rows were removed 2026-08-20 (full 34-row history in container-fixes/manifest.full-34.json.bak and FACTS.md). Routing is BY PORT: the subdomain is computed as {project}-{port}.{domain} (e.g. my-container-8978.example.com). The app NAME never appears in the hostname. Apps MUST bind 0.0.0.0 — a 127.0.0.1 listener gives a 502.",
+  "apps": [
+    {
+      "name": "docs",
+      "label": "Documentation",
+      "category": "docs",
+      "language": "markdown",
+      "mode": "static",
+      "status": "live",
+      "port": 8081,
+      "description": "How to run and deploy every live example, plus the platform rules (routing, binding, uv, Node 22, secrets)."
+    },
+    {
+      "name": "nodejs",
+      "label": "nodejs",
+      "category": "environments",
+      "language": "javascript",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8978,
+      "description": "Bare Node.js runtime — vanilla http module, no framework, no dependencies."
+    },
+    {
+      "name": "html-css-js",
+      "label": "html_css_js",
+      "category": "frontend",
+      "language": "html, css, js",
+      "mode": "static",
+      "status": "live",
+      "port": 8080,
+      "description": "Plain HTML, CSS and JavaScript. No framework, no build step — three files, three jobs."
+    },
+    {
+      "name": "vite-react",
+      "label": "vite react",
+      "category": "frontend",
+      "language": "javascript",
+      "mode": "static",
+      "status": "live",
+      "port": 5174,
+      "description": "Vite + React SPA. Runs entirely in the browser; compiles to static files."
+    },
+    {
+      "name": "python",
+      "label": "python",
+      "category": "environments",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3008,
+      "description": "Bare Python runtime — stdlib http.server only. No framework, no dependencies, no venv."
+    },
+    {
+      "name": "go",
+      "label": "go",
+      "category": "environments",
+      "language": "go",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3009,
+      "description": "Bare Go runtime — stdlib net/http, no framework, no dependencies. Compiles to a single static binary."
+    },
+    {
+      "name": "c-cpp",
+      "label": "c_cpp",
+      "category": "environments",
+      "language": "c / c++",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3007,
+      "description": "Bare C/C++ environment."
+    },
+    {
+      "name": "nextjs",
+      "label": "nextjs",
+      "category": "frontend/backend",
+      "language": "javascript",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3000,
+      "description": "Next.js serving a rendered page and a backend API route from one app."
+    },
+    {
+      "name": "tailwind",
+      "label": "tailwind",
+      "category": "frontend",
+      "language": "tailwind",
+      "mode": "static",
+      "status": "live",
+      "port": 3003,
+      "description": "Tailwind CSS — still static, but reintroduces a build step to generate the CSS."
+    },
+    {
+      "name": "typescript",
+      "label": "typescript",
+      "category": "frontend",
+      "language": "typescript",
+      "mode": "static",
+      "status": "live",
+      "port": 3004,
+      "description": "TypeScript frontend with a compile step."
+    },
+    {
+      "name": "django",
+      "label": "django",
+      "category": "backend",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3005,
+      "description": "Django backend."
+    },
+    {
+      "name": "expressjs",
+      "label": "expressjs",
+      "category": "backend",
+      "language": "javascript",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3006,
+      "description": "Express.js backend."
+    },
+    {
+      "name": "fastapi",
+      "label": "fastapi",
+      "category": "backend",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8000,
+      "description": "FastAPI backend — the next one to build; uv is already installed."
+    },
+    {
+      "name": "flask",
+      "label": "flask",
+      "category": "backend",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8001,
+      "description": "Flask backend."
+    },
+    {
+      "name": "mysql",
+      "label": "mysql",
+      "category": "databases",
+      "language": "sql",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8008,
+      "description": "MySQL/MariaDB CRUD cycle. Server on 127.0.0.1:3306 — never exposed publicly; this tile is the only public port."
+    },
+    {
+      "name": "postgres",
+      "label": "postgres",
+      "category": "databases",
+      "language": "sql",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8007,
+      "description": "PostgreSQL CRUD cycle. Server on 127.0.0.1:5432 — never exposed publicly; this tile is the only public port."
+    },
+    {
+      "name": "redis",
+      "label": "redis",
+      "category": "databases",
+      "language": "redis",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8006,
+      "description": "Redis key-value store: SET/GET/MSET/INCR/EXPIRE/DEL shown step by step. Server on 127.0.0.1:6379 — never exposed publicly; this tile is the only public port."
+    },
+    {
+      "name": "sqlite",
+      "label": "sqlite",
+      "category": "databases",
+      "language": "sql",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8005,
+      "description": "SQLite CRUD cycle (create/insert/select/update/delete) shown step by step. A database in a single file — no server, no provisioning."
+    },
+    {
+      "name": "fastapi-react",
+      "label": "fastapi_react",
+      "category": "fullstack",
+      "language": "python, javascript",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8002,
+      "description": "FastAPI backend with a React frontend."
+    },
+    {
+      "name": "fastapi-react-sqlite",
+      "label": "fastapi_react_sqlite",
+      "category": "fullstack",
+      "language": "python, javascript",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8003,
+      "description": "FastAPI + React + SQLite, using the Tiangolo project generator."
+    },
+    {
+      "name": "django-react",
+      "label": "django_react",
+      "category": "fullstack",
+      "language": "python, javascript",
+      "mode": "proxy",
+      "status": "live",
+      "port": 8004,
+      "description": "Django backend with a React frontend."
+    },
+    {
+      "name": "claude-code",
+      "label": "claude_code",
+      "category": "ai",
+      "language": "any",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3402,
+      "description": "Claude Code CLI run headlessly (claude -p) behind a web tile. Ships SKILL.md — the scaffolder instruction set."
+    },
+    {
+      "name": "openai-codex",
+      "label": "openai_codex",
+      "category": "ai",
+      "language": "any",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3403,
+      "description": "OpenAI Codex CLI run headlessly (codex exec) behind a web tile. Ships AGENTS.md — the Codex scaffolder file."
+    },
+    {
+      "name": "crewai",
+      "label": "crewai",
+      "category": "ai",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3404,
+      "description": "CrewAI role-based agents: a researcher and writer run in sequence. Bring your own API key per request; it is never stored."
+    },
+    {
+      "name": "langchain",
+      "label": "langchain",
+      "category": "ai",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3401,
+      "description": "LangChain chain: prompt template -> Claude -> output parser. Bring your own API key in the UI (used per-request, never stored); a server key is optional."
+    },
+    {
+      "name": "n8n",
+      "label": "n8n",
+      "category": "ai",
+      "language": "—",
+      "mode": "proxy",
+      "status": "live",
+      "port": 5678,
+      "description": "n8n workflow automation — a native server, no wrapper needed. First visit shows the owner-setup wizard; the account is local to this instance."
+    },
+    {
+      "name": "autogen",
+      "label": "autogen",
+      "category": "ai",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3405,
+      "description": "Microsoft AutoGen AgentChat: an AssistantAgent answers a task using a per-request BYOK key that is never stored."
+    },
+    {
+      "name": "mcp-server",
+      "label": "mcp_server",
+      "category": "ai",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3406,
+      "description": "A minimal Model Context Protocol server exposing two tools. Needs NO API key — the tile lists the tools and calls one."
+    },
+    {
+      "name": "claude-agent-sdk",
+      "label": "claude_agent_sdk",
+      "category": "ai",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3407,
+      "description": "Anthropic's Claude Agent SDK with tools and project settings disabled; the BYOK key is isolated to one request subprocess."
+    },
+    {
+      "name": "openai-agent-sdk",
+      "label": "openai_agent_sdk",
+      "category": "ai",
+      "language": "python",
+      "mode": "proxy",
+      "status": "live",
+      "port": 3408,
+      "description": "OpenAI's Agents SDK using a request-local client, so each BYOK key stays isolated and is never stored."
+    }
+  ]
+}

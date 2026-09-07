@@ -1,0 +1,90 @@
+/* CSS = APPEARANCE. This file controls how the page looks.
+   It's linked from index.html and loaded by the browser as-is — nothing
+   here is compiled or processed. (Compare with the `tailwind` row, which
+   adds a build step to generate CSS.) */
+
+:root {
+  color-scheme: dark;
+  /* A custom property (CSS variable). app.js changes this at runtime by
+     toggling the .alt-accent class below. */
+  --accent: #7dd3fc;
+}
+
+/* When JavaScript adds this class to <body>, every use of var(--accent)
+   updates at once. This is the CSS side of the theme toggle. */
+body.alt-accent {
+  --accent: #f0abfc;
+}
+
+body {
+  font: 16px/1.5 system-ui, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #0f1117;
+  color: #e6e8ee;
+}
+
+.card {
+  text-align: center;
+  padding: 2rem 2.5rem;
+  border: 1px solid #262b38;
+  border-radius: 12px;
+  background: #161a23;
+  max-width: 34rem;
+}
+
+.card h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.4rem;
+}
+
+.card code {
+  background: #0f1117;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+.meta {
+  color: #8a93a6;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.meta.small {
+  font-size: 0.8rem;
+}
+
+button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: #1a2433;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button:hover {
+  background: #22304a;
+}
+
+/* A button styled to look like a text link, used for the accent toggle. */
+button.link {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+  font-size: inherit;
+}
+
+button.link:hover {
+  background: none;
+  opacity: 0.8;
+}

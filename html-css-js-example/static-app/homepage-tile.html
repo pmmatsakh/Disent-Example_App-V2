@@ -1,0 +1,31 @@
+<!-- Homepage entry for the "example app browser / default home page".
+     The landing page iframes each sub-app on its subdomain. Add one
+     block like this per example. URL is port-routed:
+     my-container-{port}.example.com  (CLAUDE.md §2 — NOT the retired
+     *.fastcontainers.net scheme, which is a bug per §4).
+
+     NOTE: this row's port is not yet assigned (deferred). The {port} placeholder
+     in the URL below must be filled in once the port is confirmed. -->
+
+<article class="app-tile" data-category="frontend" data-lang="html,css,javascript">
+  <header>
+    <h3>html_css_js</h3>
+    <span class="badge">frontend · html, css, js · static</span>
+  </header>
+
+  <!-- live preview of the running app -->
+  <iframe
+    src="https://my-container-{port}.example.com"
+    title="html_css_js hello world"
+    loading="lazy"
+    style="width:100%; height:220px; border:0; border-radius:8px;"></iframe>
+
+  <footer>
+    <a href="https://my-container-{port}.example.com" target="_blank" rel="noopener">
+      open example ↗
+    </a>
+    <a href="https://git.example.com/philip/html-css-js" target="_blank" rel="noopener">
+      source
+    </a>
+  </footer>
+</article>

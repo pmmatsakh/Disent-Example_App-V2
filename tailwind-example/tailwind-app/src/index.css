@@ -1,0 +1,4 @@
+/* Tailwind v4: this single import pulls in the whole framework. The
+   `@tailwindcss/vite` plugin then generates only the utility classes actually
+   used in the JSX. No tailwind.config.js needed for a hello-world. */
+@import "tailwindcss";

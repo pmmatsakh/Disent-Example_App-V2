@@ -1,0 +1,30 @@
+site_name: Disent Container Examples
+site_description: How to build and run the container's example apps
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: black
+      accent: light blue
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Examples:
+      - nextjs: nextjs.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true

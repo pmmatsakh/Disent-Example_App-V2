@@ -1,0 +1,7 @@
+# crewai example. On the container: uv pip install -r requirements.txt
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.0
+# The Anthropic provider is an OPTIONAL EXTRA — plain `crewai` raises
+# "Anthropic native provider not available" at call time, not import time.
+crewai[anthropic]>=0.70

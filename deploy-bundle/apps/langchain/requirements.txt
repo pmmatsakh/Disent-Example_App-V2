@@ -1,0 +1,5 @@
+# langchain example. On the container: `uv pip install -r requirements.txt`.
+fastapi>=0.110
+uvicorn[standard]>=0.29
+langchain-anthropic>=1.0
+langchain-core>=1.0

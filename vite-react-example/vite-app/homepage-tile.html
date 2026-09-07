@@ -1,0 +1,28 @@
+<!-- Homepage entry for the "example app browser / default home page".
+     The landing page iframes each sub-app on its subdomain. Add one
+     block like this per example. URL is port-routed:
+     my-container-{port}.example.com  (CLAUDE.md §2 — NOT the retired
+     *.fastcontainers.net scheme, which is a bug per §4). -->
+
+<article class="app-tile" data-category="frontend" data-lang="javascript">
+  <header>
+    <h3>vite react</h3>
+    <span class="badge">frontend · javascript · :5174</span>
+  </header>
+
+  <!-- live preview of the running app -->
+  <iframe
+    src="https://my-container-5174.example.com"
+    title="vite react hello world"
+    loading="lazy"
+    style="width:100%; height:220px; border:0; border-radius:8px;"></iframe>
+
+  <footer>
+    <a href="https://my-container-5174.example.com" target="_blank" rel="noopener">
+      open example ↗
+    </a>
+    <a href="https://git.example.com/philip/vite-react" target="_blank" rel="noopener">
+      source
+    </a>
+  </footer>
+</article>

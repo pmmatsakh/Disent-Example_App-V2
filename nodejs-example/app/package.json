@@ -1,0 +1,10 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Vanilla Node.js hello-world example (environments category)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How this platform works — Disent docs</title><style>
+*{box-sizing:border-box}
+body{font:16px/1.65 system-ui,-apple-system,sans-serif;margin:0;background:#0f1117;color:#e6e8ee}
+.wrap{max-width:52rem;margin:0 auto;padding:2.5rem 1.25rem 5rem}
+a{color:#7dd3fc}
+h1{font-size:1.9rem;margin:0 0 .3rem}
+h2{font-size:1.15rem;margin:2.2rem 0 .6rem;padding-top:1.2rem;border-top:1px solid #1e2330}
+h3{font-size:.95rem;margin:1.4rem 0 .4rem;color:#cbd5e1}
+.sub{color:#8a93a6;margin:0 0 1.2rem}
+code{background:#161a23;padding:.12rem .4rem;border-radius:4px;color:#7dd3fc;font-size:.88em}
+pre{background:#161a23;border:1px solid #262b38;border-radius:10px;padding:.9rem 1.1rem;
+    overflow-x:auto;font-size:.85rem;line-height:1.55}
+pre code{background:none;padding:0;color:#e6e8ee}
+.badge{display:inline-block;background:#161a23;border:1px solid #262b38;border-radius:999px;
+       padding:.15rem .7rem;font-size:.78rem;color:#8a93a6;margin-right:.35rem}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.6rem 0}
+th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid #1e2330}
+th{color:#8a93a6;font-weight:600}
+.note{background:#101725;border-left:3px solid #2b6cb0;border-radius:0 8px 8px 0;
+      padding:.7rem 1rem;margin:1rem 0;font-size:.9rem}
+.warn{background:#251a10;border-left-color:#fbbf24}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:.55rem;margin-top:.8rem}
+.grid a{display:block;background:#161a23;border:1px solid #262b38;border-radius:9px;
+        padding:.6rem .8rem;text-decoration:none;color:#e6e8ee}
+.grid a:hover{border-color:#2b6cb0}
+.grid .p{color:#8a93a6;font-size:.78rem;display:block}
+.top{color:#8a93a6;font-size:.85rem;margin-bottom:1.4rem;display:block}
+</style></head>
+<body><div class="wrap"><a class="top" href="index.html">← all documentation</a><h1>How this platform works</h1>
+<p class="sub">The rules every example follows. Learned the hard way — each one
+here caused a real outage or a wasted deploy.</p>
+
+<h2>1. Routing is by PORT</h2>
+<pre><code>https://my-container-{PORT}.example.com  →  container:{PORT}</code></pre>
+<p>The app <strong>name never appears</strong> in the hostname. Each app needs its
+own port — including static ones, which otherwise all collide on :80.</p>
+<div class="note warn"><strong>The retired scheme.</strong>
+<code>{project}-{name}.fastcontainers.net</code> is dead — that domain no longer
+resolves. If you find it in a file, it is a bug.</div>
+
+<h2>2. Bind 0.0.0.0, never 127.0.0.1</h2>
+<pre><code>HOST = os.environ.get("HOST", "0.0.0.0")</code></pre>
+<p>The platform connects to <code>container:{PORT}</code> directly. A loopback-only
+listener passes every local test and still returns <strong>502</strong> at the edge.
+This is the single most common failure.</p>
+<p><strong>Databases are the deliberate exception</strong> — they stay on loopback
+and are reached through their tile, never exposed publicly.</p>
+
+<h2>3. Python uses uv</h2>
+<p>The container has no <code>pip</code> and <code>python3 -m venv</code> cannot
+build a usable environment (<code>ensurepip</code> missing).</p>
+<pre><code>uv venv .venv
+uv pip install --python .venv/bin/python -r requirements.txt</code></pre>
+<p>uv lives at <code>/root/.local/bin/uv</code>, which is not on a non-interactive
+SSH PATH. The venv has no pip inside — uv is the installer — which is fine, since
+systemd only needs <code>.venv/bin/python</code>.</p>
+
+<h2>4. Node is pinned to 22</h2>
+<pre><code>/root/.nvm/versions/node/v22.22.2/bin/node</code></pre>
+<p><code>/usr/bin/node</code> is <strong>v18.19.1</strong> and too old for Vite 8,
+Next.js 16 and the Codex CLI. Never put it in a unit.</p>
+
+<h2>5. Secrets</h2>
+<p>Git-ignored <code>.env</code>, loaded via systemd <code>EnvironmentFile</code>.
+Never hard-coded, never committed. Every app ships a <code>.env.example</code>.</p>
+<div class="note warn"><code>deploy.sh</code> regenerates the unit on every deploy,
+so an <code>EnvironmentFile=</code> line must be re-applied after a redeploy.</div>
+
+<h2>6. Deploying</h2>
+<pre><code>./deploy-all.sh &lt;name&gt;        # one app
+./deploy-all.sh                # everything</code></pre>
+<p>It runs a preflight that proves each toolchain by <em>using</em> it, copies into
+<code>/srv/apps/</code>, installs deps, then writes the unit and nginx conf and
+restarts. The verify step reports the bind address — that line is the one that
+matters.</p>
+<div class="note"><strong>Never test a capability with <code>--help</code>.</strong>
+<code>python3 -m venv --help</code> succeeds on a box where venv cannot create an
+environment. Check that a thing <em>works</em>, not that it exists.</div>
+
+<h2>7. Definition of done</h2>
+<p>Rendered in a real browser at the real subdomain. A local 200 proves nothing —
+the nodejs app returned 200 locally for weeks while every visitor got a 502.</p></div></body></html>

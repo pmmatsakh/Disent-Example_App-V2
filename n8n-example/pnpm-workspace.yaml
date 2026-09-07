@@ -1,0 +1,14 @@
+blockExoticSubdeps: false
+overrides:
+  '@langchain/core': 1.2.5
+allowBuilds:
+  '@parcel/watcher': true
+  '@scarf/scarf': true
+  '@sentry-internal/node-native-stacktrace': true
+  cpu-features: true
+  isolated-vm: true
+  msgpackr-extract: true
+  oracledb: true
+  protobufjs: true
+  sqlite3: true
+  ssh2: true

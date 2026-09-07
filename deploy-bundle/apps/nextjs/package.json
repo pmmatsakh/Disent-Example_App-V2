@@ -1,0 +1,16 @@
+{
+  "name": "nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Next.js frontend/backend hello-world example",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000"
+  },
+  "dependencies": {
+    "next": "^16.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
